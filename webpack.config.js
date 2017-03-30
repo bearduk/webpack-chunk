@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js' // uses key 'name' from above. 'chunkhash' adds random number to help with end users browser cache.
   },
   module: {
   	rules: [
@@ -30,7 +30,7 @@ module.exports = {
   },
   plugins: [
   	new webpack.optimize.CommonsChunkPlugin({
-  		name: 'vendor' // any of the output that is a duplicate, add it ONLY to vendor output.
+  		names: ['vendor', 'manifest'] // any of the output that is a duplicate, add it ONLY to vendor output. manifest let's the browser know exactly what has changed. The hash (above) doesn't always get picked up otherwise.
   	}),
   	new HtmlWebpackPlugin({
   		// builds a default by itself or you can feed it a template like so:
