@@ -4,6 +4,7 @@ bower_components
 .sass-cache
 builds
 build
+dist
 
 ## START NODE LIST
 
