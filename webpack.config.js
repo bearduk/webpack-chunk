@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
 	'react', 'lodash', 'redux', 'react-redux', 'react-dom', 'faker', 'react-input-range', 'redux-form', 'redux-thunk'
@@ -30,6 +31,10 @@ module.exports = {
   plugins: [
   	new webpack.optimize.CommonsChunkPlugin({
   		name: 'vendor' // any of the output that is a duplicate, add it ONLY to vendor output.
+  	}),
+  	new HtmlWebpackPlugin({
+  		// builds a default by itself or you can feed it a template like so:
+  		template: 'src/index.html'
   	})
   ]
 };
