@@ -20,3 +20,5 @@ const App = () => {
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
+console.log('Note that npm run server runs in memory and so is independant from the dist folder from a build.');
